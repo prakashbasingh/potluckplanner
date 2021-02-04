@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -51,19 +52,19 @@ const Input = styled.input`
 `;
 
 const initialPotluckInfo = {
-  locationName: "",
-  locationAddress: "",
-  locationStreet: "",
-  locationState: "",
-  locationCity: "",
-  locationCountry: "",
-  locationPostcode: "",
+  name: "",
+  location: "",
+  date: "",
+  time: "",
+  user_id: "",
 };
 
 const CreatePotluckForm = (props) => {
   console.log(props, "PpPpPpRrRrRrOoOoOoPpPpPpSsSsSs");
   const [newPotLuckInfo, setNewPotLuckInfo] = useState(initialPotluckInfo);
   // console.log(newPotLuckInfo, " O o o o o O O O O o o o o");
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     setNewPotLuckInfo({
@@ -74,19 +75,17 @@ const CreatePotluckForm = (props) => {
 
   const handleSubmit = (e) => {
     const newPotluck = {
-      locationName: newPotLuckInfo.locationName,
-      locationAddress: newPotLuckInfo.locationAddress,
-      locationStreet: newPotLuckInfo.locationStreet,
-      locationState: newPotLuckInfo.locationState,
-      locationCity: newPotLuckInfo.locationCity,
-      locationCountry: newPotLuckInfo.locationCountry,
-      locationPostcode: newPotLuckInfo.locationPostcode,
+      name: newPotLuckInfo.name,
+      location: newPotLuckInfo.location,
+      date: newPotLuckInfo.date,
+      time: newPotLuckInfo.time,
+      user_id: newPotLuckInfo.user_id,
     };
-
     console.log(newPotluck, "NewPotluck data @ @ @ @ @ @ @ @ @ @");
+
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/potlucks", newPotluck)
+      .post("/potlucks", newPotluck)
       .then((res) => {
         console.log(res, "great! ! ! ! ! !  we have response");
       })
@@ -94,74 +93,57 @@ const CreatePotluckForm = (props) => {
         console.log(error, " Should Not get error!! fix it and get res :-( ");
       });
     setNewPotLuckInfo(initialPotluckInfo);
+    history.push("/potluckPage");
   };
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
         <div></div>
-        <Label>
+        <label>
           Potluck Name
-          <Input
+          <input
             type="text"
-            name="locationName"
-            value={newPotLuckInfo.locationName}
+            name="name"
+            value={newPotLuckInfo.name}
             onChange={handleChange}
           />{" "}
-        </Label>
-        <Label>
-          Block No
-          <Input
+        </label>
+        <label>
+          Location
+          <input
             type="text"
-            name="locationAddress"
-            value={newPotLuckInfo.locationAddress}
+            name="location"
+            value={newPotLuckInfo.location}
             onChange={handleChange}
           />{" "}
-        </Label>
-        <Label>
-          Street
-          <Input
+        </label>
+        <label>
+          Date
+          <input
             type="text"
-            name="locationStreet"
-            value={newPotLuckInfo.locationStreet}
+            name="date"
+            value={newPotLuckInfo.date}
             onChange={handleChange}
           />{" "}
-        </Label>
-        <Label>
-          City
-          <Input
+        </label>
+        <label>
+          Time
+          <input
             type="text"
-            name="locationCity"
-            value={newPotLuckInfo.locationCity}
+            name="time"
+            value={newPotLuckInfo.time}
             onChange={handleChange}
           />{" "}
-        </Label>
-        <Label>
-          State
-          <Input
+        </label>
+        <label>
+          ID
+          <input
             type="text"
-            name="locationState"
-            value={newPotLuckInfo.locationState}
+            name="user_id"
+            value={newPotLuckInfo.user_id}
             onChange={handleChange}
           />{" "}
-        </Label>
-        <Label>
-          Postal Code
-          <Input
-            type="text"
-            name="locationPostcode"
-            value={newPotLuckInfo.locationPostcode}
-            onChange={handleChange}
-          />{" "}
-        </Label>
-        <Label>
-          Country
-          <Input
-            type="text"
-            name="locationCountry"
-            value={newPotLuckInfo.locationCountry}
-            onChange={handleChange}
-          />{" "}
-        </Label>
+        </label>
         <Button>Submit</Button>
       </Form>
       <div>

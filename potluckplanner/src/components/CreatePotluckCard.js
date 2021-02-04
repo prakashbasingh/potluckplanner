@@ -43,8 +43,8 @@ const CreatePotluckCard = (props) => {
             </PotluckContainer>
           );
         })}
-        {/* <AddItemCard/>
-                    <AddGuestCard/>  */}
+        {/* <AddItemCard />
+        <AddGuestCard /> */}
         {/* <button onClick={deletePotluck}>Delete potluck</button> */}
       </div>
     </div>

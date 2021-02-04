@@ -14,7 +14,7 @@ const PotluckInfo = styled.div`
   border: 1px solid gray;
   background: #ffb6c1;
   box-shadow: 0 0 15px 20px #ffc0cb;
-  font-family: "Architects Daughter", cursive;
+  /* font-family: "Architects Daughter", cursive; */
 `;
 const Button = styled.button`
   width: 200px;
@@ -34,8 +34,9 @@ const Potluck = (props) => {
   );
 
   const history = useHistory();
+  console.log(history, "H H H H H H H HH H H H H H H H");
 
-  const id = props.location.pathname.slice(13, 15);
+  const id = history.location.pathname.slice(13, 16);
   console.log(id, "???????????????????????????????");
 
   const potluck = props.potluckInfo.find(
@@ -70,7 +71,7 @@ const Potluck = (props) => {
   const handleDelete = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .delete(`/api/potlucks/${potluck.id}`)
+      .delete(`/potlucks/${potluck.id}`)
       .then((res) => {
         console.log(res, "DELETE UpdateForm  RES <<<<<<<>>>>>>>");
         props.setPotluckInfo(res.data);
@@ -88,16 +89,26 @@ const Potluck = (props) => {
   return (
     <div>
       <PotluckInfo>
+        <div style={{ textAlign: "right" }}>
+          <button
+            style={{ width: "15px" }}
+            type="button"
+            className="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            onClick={() => history.push("/potluckPage")}
+          >
+            <span>&times;</span>
+          </button>
+        </div>
+
         <h2>Edit/Delete potluck</h2>
 
         <div>
-          <h3>Potluck Name: {potluck.locationName}</h3>
-          <p>Block Number: {potluck.locationAddress}</p>
-          <p> Street: {potluck.locationStreet}</p>
-          <p> City: {potluck.locationCity}</p>
-          <p>State: {potluck.locationState}</p>
-          <p> Postal Code: {potluck.locationPostcode}</p>
-          <p>Country: {potluck.locationCountry}</p>
+          <h3>{potluck.name}</h3>
+          <p>Location: {potluck.location}</p>
+          <p> Date: {potluck.date}</p>
+          <p> Time: {potluck.time}</p>
         </div>
 
         <Button
