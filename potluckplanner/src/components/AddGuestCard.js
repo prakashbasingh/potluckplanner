@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import styled from "styled-components"
-
+import styled from "styled-components";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+const GuestDiv = styled.div`
+  border: 1px solid black;
+  margin: 5px;
+`;
 
 const AddItemCard = (props) => {
   const [guest, setGuest] = useState([]);
@@ -25,11 +29,10 @@ const AddItemCard = (props) => {
         Guests
         {guest.map((newGuest) => {
           return (
-            <div key={newGuest.id}>
-              <p>Potluck ID: {newGuest.potluckId}</p>
-              <p>Role:{newGuest.role}</p>
-              <p>Email:{newGuest.email}</p>
-            </div>
+            <GuestDiv key={newGuest.id} className="">
+              <p>Potluck ID: {newGuest.potluck_id}</p>
+              <p>Guest Name:{newGuest.guest_name}</p>
+            </GuestDiv>
           );
         })}
       </div>

@@ -28,14 +28,15 @@ import AboutUs from "./landingPageComponent/aboutUs.js";
 import SuccessStories from "./landingPageComponent/successStories.js";
 
 const initialLoginValues = {
-  email: "",
+  username: "",
   password: "",
 };
 
 const initialSignupValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
+  // firstName: "",
+  // lastName: "",
+  // email: "",
+  username: "",
   password: "",
 };
 
@@ -45,9 +46,10 @@ const initialLoginErrors = {
 };
 
 const initialSignupErrors = {
-  firstName: "",
-  lastName: "",
-  email: "",
+  // firstName: "",
+  // lastName: "",
+  // email: "",
+  username: "",
   password: "",
 };
 
@@ -61,7 +63,7 @@ function App(props) {
   // console.log(login, " login Info {}{}{}{}{}{}|{}|")
 
   const [signup, setSignup] = useState(initialSignupValues);
-  // console.log(signup, " SIGN UP Info {}{}{}{}{}{}|{}|")
+  console.log(signup, " SIGN UP Info {}{}{}{}{}{}|{}|");
 
   const [loginErrors, setLoginErrors] = useState(initialLoginErrors);
   const [signupErrors, setSignupErrors] = useState(initialSignupErrors);
@@ -117,11 +119,12 @@ function App(props) {
       .then((res) => {
         console.log(res, "postSignup Res ()()()()()()()()");
         // localStorage.setItem("token", res.data.authToken)
-        props.history.push("/login");
+        // props.history.push("/login");
       })
       .catch((error) => {
         console.log(error, "postSignup error ()()()()()()()()");
       });
+    setSignup(initialSignupValues);
   };
 
   const submitLoginInfo = (e) => {
@@ -136,7 +139,7 @@ function App(props) {
       .catch((error) => {
         console.log(error.message, "postLogin Error ()()()()()()");
       });
-    // setLogin(initialLoginValues)
+    setLogin(initialLoginValues);
   };
 
   const signupInputChange = (event) => {
@@ -343,7 +346,9 @@ function App(props) {
           <Route exact path="/itemForm" component={AddItemForm} />
           <Route exact path="/guestForm" component={AddGuestForm} />
 
-          <Route exact path="/potluckPage" render={() => <PotluckPage />} />
+          <PrivateRoute exact path="/potluckPage">
+            <PotluckPage />
+          </PrivateRoute>
 
           <Route
             exact

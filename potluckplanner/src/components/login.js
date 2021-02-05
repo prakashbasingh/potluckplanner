@@ -24,8 +24,8 @@ const Login = (props) => {
               value={values.username}
               onChange={onInputChange}
               name="username"
-              type="username"
-              placeholder="Email"
+              type="text"
+              placeholder="username"
             />
           </label>
           <br />

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import styled from "styled-components"
-
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
+
+const FoodItemDiv = styled.div`
+  border: 1px solid black;
+  margin: 5px;
+`;
 
 const AddItemCard = (props) => {
   const [items, setItems] = useState([]);
@@ -25,12 +29,11 @@ const AddItemCard = (props) => {
         Food Items
         {items.map((item) => {
           return (
-            <div>
-              <p>PotluckId: {item.potluckId}</p>
-              <p>Food Category: {item.foodCategory}</p>
-              <p>Food Description:{item.foodDescription}</p>
-              <p>Servings: {item.servings} </p>
-            </div>
+            <FoodItemDiv key={item.id}>
+              <p>Potluck Id: {item.potluck_id}</p>
+              <p>Food Item: {item.item_name}</p>
+              <p>claimed:{item.claimed}</p>
+            </FoodItemDiv>
           );
         })}
       </div>
