@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
 export default styled.div`
-  form {
+  .loginForm {
     width: 50%;
     margin: 2rem auto;
     background: #faebd7;
+    border: 2px dashed black;
+    box-shadow: 0 0 15px 20px #ffc0cb;
+  }
+  .signupForm {
+    width: 50%;
+    margin: 2rem auto;
+    background: red;
     border: 2px dashed black;
     box-shadow: 0 0 15px 20px #ffc0cb;
   }

@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import Styles from "./styledcomponets";
 
 const Signup = (props) => {
-  const { values, onInputChange, submitSignupInfo, disabled, errors } = props;
+  const { signup, onInputChange, submitSignupInfo, disabled, errors } = props;
   console.log(props, "0000000000000000");
   return (
     <Styles>
-      <form onSubmit={submitSignupInfo}>
+      <form className="signupForm">
         <h2>Sign Up Information</h2>
         <p className="error">{errors.username}</p>
         <label>
           Username:
           <input
-            value={values.username}
+            value={signup.username}
             onChange={onInputChange}
             name="username"
             type="text"
@@ -25,7 +25,7 @@ const Signup = (props) => {
         <label>
           Last Name:
           <input
-            value={values.lastName}
+            value={signup.lastName}
             onChange={onInputChange}
             name="lastName"
             type="text"
@@ -37,7 +37,7 @@ const Signup = (props) => {
         <label>
           Email:
           <input
-            value={values.email}
+            value={signup.email}
             onChange={onInputChange}
             name="email"
             type="email"
@@ -49,7 +49,7 @@ const Signup = (props) => {
         <label>
           Password:
           <input
-            value={values.password}
+            value={signup.password}
             onChange={onInputChange}
             name="password"
             type="password"
@@ -57,11 +57,13 @@ const Signup = (props) => {
           />
         </label>
         <div className="bttn">
-          <Link to="login">
-            <button disabled={disabled} className="submit">
-              Submit
-            </button>
-          </Link>
+          <button
+            disabled={disabled}
+            onClick={submitSignupInfo}
+            className="submit"
+          >
+            Submit
+          </button>
 
           <Link to="/login">
             <button>Already have an account?</button>

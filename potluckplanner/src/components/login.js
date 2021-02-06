@@ -4,7 +4,7 @@ import Styles from "./styledcomponets";
 
 const Login = (props) => {
   const {
-    values,
+    login,
     onInputChange,
     // onSubmit,
     disabled,
@@ -14,14 +14,14 @@ const Login = (props) => {
 
   return (
     <Styles>
-      <form onSubmit={submitLoginInfo}>
+      <form onSubmit={submitLoginInfo} className="loginForm">
         <h2>Login Information</h2>
         <p className="error">{errors.email}</p>
         <div className="inputContainer">
           <label>
             Username:
             <input
-              value={values.username}
+              value={login.username}
               onChange={onInputChange}
               name="username"
               type="text"
@@ -33,7 +33,7 @@ const Login = (props) => {
           <label>
             Password:
             <input
-              value={values.password}
+              value={login.password}
               onChange={onInputChange}
               name="password"
               type="password"

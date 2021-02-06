@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 // import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 
 import * as yup from "yup";
 // import axios from 'axios';
@@ -86,32 +92,6 @@ function App(props) {
       });
   }, []);
 
-  // let history = useHistory();
-
-  // const getMembers = () =>{
-  //   axiosWithAuth()
-  //   .get('https://potluck-plann3r.herokuapp.com/')
-  //     .then(response =>{
-  //       setMembers([...members, response.data])
-  //     })
-  //     .catch(error =>{
-  //       debugger
-  //     })
-  // };
-
-  // const postMember = (member) =>{
-  //   axios.post('https://potluck-plann3r.herokuapp.com/', member)
-  //     .then(response =>{
-  //       setMembers([...members, response.data])
-  //     })
-  //     .catch(error =>{
-  //       debugger
-  //     })
-  //     .finally(() =>{
-  //       setSignup(initialSignupValues)
-  //     })
-  // };
-
   const submitSignupInfo = (e) => {
     e.preventDefault();
     axiosWithAuth()
@@ -119,7 +99,7 @@ function App(props) {
       .then((res) => {
         console.log(res, "postSignup Res ()()()()()()()()");
         // localStorage.setItem("token", res.data.authToken)
-        // props.history.push("/login");
+        window.location.assign("/login");
       })
       .catch((error) => {
         console.log(error, "postSignup error ()()()()()()()()");
@@ -168,6 +148,9 @@ function App(props) {
   };
 
   const loginInputChange = (event) => {
+    // event.preventDefault();
+    // setLogin(event.target.value);
+
     const { name, value } = event.target;
 
     yup
@@ -191,31 +174,6 @@ function App(props) {
       [name]: value,
     });
   };
-
-  // const signupSubmit = (event) =>{
-  //   event.preventDefault();
-
-  //   const newMember = {
-  //     firstName: signup.firstName.trim(),
-  //     lastName: signup.lastName.trim(),
-  //     email: signup.email.trim(),
-  //     password: signup.password.trim(),
-  //     id: uuid(),
-  //   };
-
-  //   postMember(newMember);
-  // };
-
-  // const loginSubmit = (event) =>{
-  //   event.preventDefault();
-
-  //   const member = {
-  //     email: login.email.trim(),
-  //     password: login.password.trim(),
-  //   };
-
-  //   getMembers(member);
-  // };
 
   useEffect(() => {
     signupSchema.isValid(signup).then((valid) => {
@@ -318,7 +276,7 @@ function App(props) {
             path="/login"
             render={() => (
               <Login
-                values={login}
+                login={login}
                 onInputChange={loginInputChange}
                 disabled={loginDisabled}
                 errors={loginErrors}
@@ -333,7 +291,7 @@ function App(props) {
             path="/register"
             render={() => (
               <Signup
-                values={signup}
+                signup={signup}
                 onInputChange={signupInputChange}
                 disabled={signupDisabled}
                 errors={signupErrors}
