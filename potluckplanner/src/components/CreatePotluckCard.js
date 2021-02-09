@@ -10,6 +10,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 const PotluckContainer = styled.div`
   border: 1px solid gray;
   width: 70%;
+  padding: 0.5rem;
   margin: 1rem auto;
   font-family: "Architects Daughter", cursive;
 `;
@@ -25,26 +26,50 @@ const CreatePotluckCard = (props) => {
   }
 
   return (
-    <div>
-      <h1 style={{ fontSize: "20px" }}> Potluck List </h1>
+    <div className=" row border border-dark pt-2">
+      <div className="col col-sm-2">
+        <img />
+      </div>
 
-      <div>
-        {props.potluckInfo.map((potluck) => {
-          console.log(potluck, "{{{{{{{==========}}}}}}}");
-          return (
-            <PotluckContainer key={potluck.id}>
-              <div onClick={(ev) => routeToItem(ev, potluck)} key={potluck.id}>
-                <h4>{potluck.name} </h4>
-                <p>Location: {potluck.location} </p>
-                <p>Date: {potluck.date} </p>
-                <p>Time: {potluck.time} </p>
-              </div>
-            </PotluckContainer>
-          );
-        })}
-        {/* <AddItemCard />
+      <div className="col col-sm-8">
+        <h1 style={{ fontSize: "20px" }}> Potluck List </h1>
+
+        <div
+          className="row align-items-center"
+          style={{
+            border: "1px solid red",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          {props.potluckInfo.map((potluck) => {
+            console.log(potluck, "{{{{{{{==========}}}}}}}");
+            return (
+              <PotluckContainer
+                key={potluck.id}
+                className="col col-sm-3 m-4"
+                style={{ border: "1px solid red" }}
+              >
+                <div
+                  onClick={(ev) => routeToItem(ev, potluck)}
+                  key={potluck.id}
+                >
+                  <h4>{potluck.name} </h4>
+                  <p>Location: {potluck.location} </p>
+                  <p>Date: {potluck.date} </p>
+                  <p>Time: {potluck.time} </p>
+                </div>
+              </PotluckContainer>
+            );
+          })}
+          {/* <AddItemCard />
         <AddGuestCard /> */}
-        {/* <button onClick={deletePotluck}>Delete potluck</button> */}
+          {/* <button onClick={deletePotluck}>Delete potluck</button> */}
+        </div>
+      </div>
+      <div className="col col-sm-2">
+        <img />
       </div>
     </div>
   );

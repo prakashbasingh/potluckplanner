@@ -37,4 +37,17 @@ export default styled.div`
   div button a {
     text-decoration: none;
   }
+  /* .row .link {
+    padding: 10px;
+    width: 200px;
+    margin: auto;
+    text-decoration: none;
+    border: 1px dashed black;
+    background: #cbe2b0;
+    border-radius: 2rem;
+    &:hover {
+      background: green;
+      box-shadow: 0 0 5px 2px green;
+    }
+  } */
 `;

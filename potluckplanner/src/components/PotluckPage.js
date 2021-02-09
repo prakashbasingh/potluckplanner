@@ -10,28 +10,14 @@ import AddGuestCard from "./AddGuestCard";
 
 const PotluckPageContainer = styled.div`
   background: #f0e68c;
-  padding: 2rem;
   margin: auto;
   border: 1px dashed black;
   height: 100%;
 `;
 
 const PageContainer = styled.div`
-  margin: 2rem;
+  /* margin: 2rem; */
   padding: 2rem;
-`;
-const Nav = styled.nav`
-  padding: 10px;
-  width: 200px;
-  margin: auto;
-  text-decoration: none;
-  border: 1px dashed black;
-  background: #cbe2b0;
-  border-radius: 2rem;
-  &:hover {
-    background: green;
-    box-shadow: 0 0 5px 2px green;
-  }
 `;
 
 const PotluckPage = (props) => {
@@ -57,14 +43,12 @@ const PotluckPage = (props) => {
 
   return (
     <PotluckPageContainer>
-      <Nav>
-        <Link
-          to="/potluckForm"
-          style={{ textDecoration: "none", color: "black" }}
-        >
+      <div className="pt-3 offset-md-10">
+        <a className="btn btn-outline-dark " href="/potluckForm" type="button">
           Create New PotLuck
-        </Link>
-      </Nav>
+        </a>
+      </div>
+
       <PageContainer>
         <CreatePotluckCard potluckInfo={potluckInfo} />
 
