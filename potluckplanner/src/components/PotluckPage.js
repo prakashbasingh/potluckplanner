@@ -68,8 +68,8 @@ const PotluckPage = (props) => {
       <PageContainer>
         <CreatePotluckCard potluckInfo={potluckInfo} />
 
-        <AddItemCard />
-        <AddGuestCard />
+        {/* <AddItemCard /> */}
+        {/* <AddGuestCard /> */}
       </PageContainer>
     </PotluckPageContainer>
   );

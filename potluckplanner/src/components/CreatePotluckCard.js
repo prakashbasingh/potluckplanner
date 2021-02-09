@@ -26,10 +26,9 @@ const CreatePotluckCard = (props) => {
 
   return (
     <div>
-      <h1 style={{ fontSize: "20px" }}> Hello Hello </h1>
+      <h1 style={{ fontSize: "20px" }}> Potluck List </h1>
 
       <div>
-        Potluck
         {props.potluckInfo.map((potluck) => {
           console.log(potluck, "{{{{{{{==========}}}}}}}");
           return (

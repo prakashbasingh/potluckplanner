@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Styles from "./styledcomponets";
 
 const Signup = (props) => {
   const { signup, onInputChange, submitSignupInfo, disabled, errors } = props;
   console.log(props, "0000000000000000");
+
+  let history = useHistory();
+
   return (
     <Styles>
       <div
@@ -55,6 +58,7 @@ const Signup = (props) => {
                 onClick={submitSignupInfo}
                 type="submit"
                 className="submit btn btn-outline-warning"
+                // onClick={() => history.push("/login")}
               >
                 Submit
               </button>

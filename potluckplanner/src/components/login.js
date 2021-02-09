@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Styles from "./styledcomponets";
 
 const Login = (props) => {
@@ -11,6 +11,8 @@ const Login = (props) => {
     errors,
     submitLoginInfo,
   } = props;
+
+  let history = useHistory();
 
   return (
     <Styles>
@@ -62,6 +64,7 @@ const Login = (props) => {
                 type="submit"
                 className="btn btn-outline-warning"
                 disabled={disabled}
+                // onClick={() => history.push("/potluckPage")}
               >
                 Login Now
               </button>

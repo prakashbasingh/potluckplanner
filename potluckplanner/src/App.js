@@ -92,6 +92,8 @@ function App(props) {
       });
   }, []);
 
+  let history = useHistory();
+
   const submitSignupInfo = (e) => {
     e.preventDefault();
     axiosWithAuth()
@@ -112,8 +114,8 @@ function App(props) {
     axiosWithAuth()
       .post("/auth/login", login)
       .then((res) => {
-        console.log(res, "postLogin res ()()()()()()()");
-        localStorage.setItem("token", res.data.authToken);
+        console.log(res.data, "postLogin res ()()()()()()()");
+        localStorage.setItem("token", res.data.token);
         window.location.assign("/potluckPage");
       })
       .catch((error) => {
@@ -187,6 +189,7 @@ function App(props) {
     });
   }, [login]);
 
+  const token = localStorage.getItem("token");
   return (
     <Router>
       <div className="App">
@@ -303,17 +306,38 @@ function App(props) {
           <Route exact path="/potluckForm" component={CreatePotluckForm} />
           <Route exact path="/itemForm" component={AddItemForm} />
           <Route exact path="/guestForm" component={AddGuestForm} />
-
-          <PrivateRoute exact path="/potluckPage">
-            <PotluckPage />
-          </PrivateRoute>
+          {token ? (
+            <PrivateRoute exact path="/potluckPage">
+              <PotluckPage />
+            </PrivateRoute>
+          ) : (
+            <div
+              style={{
+                background: "rgba(0, 0, 0, 0.7",
+                width: "50%",
+                margin: "auto",
+                padding: "5%",
+                border: "1px solid black",
+                borderShadow: "",
+              }}
+            >
+              <p style={{ color: "orangeRed", paddingBottom: "5%" }}>
+                Please Login To Access Potluck Page
+              </p>
+              <a className="btn btn-outline-success" href="/login">
+                Go To Login Page
+              </a>
+            </div>
+          )}
 
           <Route
             exact
             path="/potluckPage/updateForm/:id"
             render={() => <UpdatePotluckForm setPotluckInfo={setPotluckInfo} />}
           />
-          {/* <PrivateRoute exact path="/potluckPage/updateForm/:id"> <UpdatePotluckForm setPotluckInfo={setPotluckInfo} /></PrivateRoute> */}
+          {/* <PrivateRoute exact path="/potluckPage/updateForm/:id">
+            <UpdatePotluckForm setPotluckInfo={setPotluckInfo} />
+          </PrivateRoute> */}
           <Route
             exact
             Path="/potluckPage/:id"
@@ -324,7 +348,12 @@ function App(props) {
               />
             )}
           />
-          {/* <PrivateRoute exact Path="/potluckPage/:id"><Potluck {...props} potluckInfo={potluckInfo} setPotluckInfo={setPotluckInfo}/> </PrivateRoute> */}
+          {/* <PrivateRoute exact Path="/potluckPage/:id">
+            <Potluck
+              potluckInfo={potluckInfo}
+              setPotluckInfo={setPotluckInfo}
+            />{" "}
+          </PrivateRoute> */}
         </Switch>
       </div>
     </Router>
