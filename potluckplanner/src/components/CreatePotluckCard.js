@@ -12,7 +12,6 @@ const PotluckContainer = styled.div`
   width: 70%;
   padding: 0.5rem;
   margin: 1rem auto;
-  font-family: "Architects Daughter", cursive;
 `;
 
 const CreatePotluckCard = (props) => {
@@ -26,9 +25,12 @@ const CreatePotluckCard = (props) => {
   }
 
   return (
-    <div className=" row border border-dark pt-2">
-      <div className="col col-sm-2">
-        <img />
+    <div className=" row border border-dark pt-2 ">
+      <div className="col col-sm-2 potImage">
+        <img
+          // className="potImage"
+          src="https://c1.staticflickr.com/3/2464/31961822194_a9161f2b5d_b.jpg"
+        />
       </div>
 
       <div className="col col-sm-8">
@@ -37,7 +39,6 @@ const CreatePotluckCard = (props) => {
         <div
           className="row align-items-center"
           style={{
-            border: "1px solid red",
             textAlign: "center",
             display: "flex",
             justifyContent: "space-around",
@@ -48,10 +49,16 @@ const CreatePotluckCard = (props) => {
             return (
               <PotluckContainer
                 key={potluck.id}
-                className="col col-sm-3 m-4"
-                style={{ border: "1px solid red" }}
+                className="col col-sm-3 m-4 "
+                style={{
+                  border: "1px solid red",
+                  borderRadius: "1rem",
+                  boxShadow: "5px 10px 28px red",
+                  background: "#cbfece",
+                }}
               >
                 <div
+                  className=""
                   onClick={(ev) => routeToItem(ev, potluck)}
                   key={potluck.id}
                 >
@@ -68,8 +75,11 @@ const CreatePotluckCard = (props) => {
           {/* <button onClick={deletePotluck}>Delete potluck</button> */}
         </div>
       </div>
-      <div className="col col-sm-2">
-        <img />
+      <div className="col col-sm-2 potImage">
+        <img
+          src="https://c1.staticflickr.com/3/2464/31961822194_a9161f2b5d_b.jpg"
+          class="img-fluid"
+        />
       </div>
     </div>
   );

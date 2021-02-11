@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 // import { useHistory } from "react-router-dom";
-import styled from "styled-components";
 import {
   BrowserRouter as Router,
   Route,
@@ -202,6 +201,7 @@ function App(props) {
             alt="crockpot logo"
           />
           <h1 style={{ fontSize: "5rem" }}> Potlucky Potluck Planner</h1>
+          {/* <div>User</div> */}
         </header>
         <nav className="nav-landing2">
           <a
@@ -304,8 +304,8 @@ function App(props) {
           />
 
           <Route exact path="/potluckForm" component={CreatePotluckForm} />
-          <Route exact path="/itemForm" component={AddItemForm} />
-          <Route exact path="/guestForm" component={AddGuestForm} />
+          {/* <Route exact path="/itemForm" component={AddItemForm} />
+          <Route exact path="/guestForm" component={AddGuestForm} /> */}
           {token ? (
             <PrivateRoute exact path="/potluckPage">
               <PotluckPage />

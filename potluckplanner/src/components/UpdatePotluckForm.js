@@ -18,7 +18,7 @@ const UpdateFormContainer = styled.div`
   font-family: "Architects Daughter", cursive;
 `;
 const Form = styled.form`
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   margin: 1rem auto;
 `;
@@ -111,6 +111,18 @@ const UpdatePotluckForm = (props) => {
 
   return (
     <UpdateFormContainer>
+      <div style={{ textAlign: "right" }}>
+        <button
+          style={{ width: "15px" }}
+          type="button"
+          className="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          onClick={() => history.push(`/potluckPage/${id}`)}
+        >
+          <span>&times;</span>
+        </button>
+      </div>
       <h2>Update Potluck</h2>
       <Form onSubmit={updateHandleSubmit}>
         <label>
@@ -176,7 +188,7 @@ const UpdatePotluckForm = (props) => {
             onChange={handleChange}
           />{" "}
         </label> */}
-        <label>
+        {/* <label>
           ID
           <input
             type="text"
@@ -184,24 +196,28 @@ const UpdatePotluckForm = (props) => {
             value={editPotluck.user_id}
             onChange={handleChange}
           />{" "}
-        </label>
+        </label> */}
         <Button>Update</Button>
       </Form>
-      {/* <LinkBag>
-                 <LinkContainer>
-                    <Link to="/itemForm" style={{textDecoration: "none", color: "black"}}> Go To Add Food</Link>                
-                </LinkContainer>
-            
-                <LinkContainer>
-                    <Link to="/potluckForm" style={{textDecoration: "none", color: "black"}}>Go To Potluck Form</Link>
-                </LinkContainer>
-                <LinkContainer>
-                    <Link to="/itemForm" style={{textDecoration: "none", color: "black"}}> Go To Item Form</Link>
-                </LinkContainer>
-                <LinkContainer>
-                    <Link to="/potluckPage" style={{textDecoration: "none", color: "black"}}>Go To Potluck Page</Link> 
-                </LinkContainer>
-            </LinkBag> */}
+      <LinkBag>
+        <LinkContainer>
+          <Link
+            onClick={() => history.push(`/potluckPage/${id}`)}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Go Back To Potluck
+          </Link>
+        </LinkContainer>
+
+        <LinkContainer>
+          <Link
+            to="/potluckPage"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Go To Potluck Page
+          </Link>
+        </LinkContainer>
+      </LinkBag>
     </UpdateFormContainer>
   );
 };

@@ -97,8 +97,8 @@ const CreatePotluckForm = (props) => {
   };
   return (
     <FormContainer>
+      <h2>Create New Potluck</h2>
       <Form onSubmit={handleSubmit}>
-        <div></div>
         <label>
           Potluck Name
           <input

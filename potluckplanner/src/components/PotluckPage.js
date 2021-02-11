@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 import CreatePotluckCard from "./CreatePotluckCard";
-import AddItemCard from "./AddItemCard";
-import AddGuestCard from "./AddGuestCard";
 
 const PotluckPageContainer = styled.div`
-  background: #f0e68c;
+  background: rgba(182, 255, 193, 0.4);
   margin: auto;
   border: 1px dashed black;
   height: 100%;
+  box-shadow: "5px 10px 28px red";
 `;
 
 const PageContainer = styled.div`
@@ -43,17 +41,18 @@ const PotluckPage = (props) => {
 
   return (
     <PotluckPageContainer>
-      <div className="pt-3 offset-md-10">
-        <a className="btn btn-outline-dark " href="/potluckForm" type="button">
+      <div className="p-2 offset-md-10 btn btn-warning">
+        <a
+          className="btn btn-outline-danger "
+          href="/potluckForm"
+          type="button"
+        >
           Create New PotLuck
         </a>
       </div>
 
       <PageContainer>
         <CreatePotluckCard potluckInfo={potluckInfo} />
-
-        {/* <AddItemCard /> */}
-        {/* <AddGuestCard /> */}
       </PageContainer>
     </PotluckPageContainer>
   );

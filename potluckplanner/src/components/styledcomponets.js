@@ -37,17 +37,58 @@ export default styled.div`
   div button a {
     text-decoration: none;
   }
-  /* .row .link {
-    padding: 10px;
-    width: 200px;
-    margin: auto;
-    text-decoration: none;
-    border: 1px dashed black;
-    background: #cbe2b0;
-    border-radius: 2rem;
-    &:hover {
-      background: green;
-      box-shadow: 0 0 5px 2px green;
-    }
-  } */
+  .potImage img {
+    border: 1px solid red;
+    box-shadow: 0 0 15px 20px #0275d8;
+  }
+
+  /* AddItemCard Component */
+  .foodItemDiv {
+    border: 1px solid black;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    width: 95%;
+  }
+  .foodItem {
+    margin: 5px;
+  }
+  .itemDeleteBtn {
+    width: 5%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+  }
+  .mainItemDiv {
+    display: flex;
+    /* flex-direction: row; */
+  }
+  .itemDeleteBtn button {
+    color: red;
+  }
+
+  /* AddGuestCard Component */
+  .mainGuestDiv {
+    display: flex;
+    height: 60px;
+  }
+  .guestDiv {
+    border: 1px solid black;
+    margin: 5px;
+    text-align: left;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .guestDeleteBtn {
+    width: 5%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+  }
+  .guestDeleteBtn button {
+    color: red;
+  }
 `;

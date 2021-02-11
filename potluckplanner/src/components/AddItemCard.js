@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
-const FoodItemDiv = styled.div`
-  border: 1px solid black;
-  margin: 5px;
-`;
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Styles from "./styledcomponets";
 
 const AddItemCard = (props) => {
   const [items, setItems] = useState([]);
   console.log(items, "Do we Have Item Data??  ?? ??  ??");
 
+  const history = useHistory();
+  console.log(history, "History in AddItemCard");
+
+  const id = history.location.pathname.slice(13, 16);
+  console.log(id, "?????????????? ID ID ID in AddItemCard ?????????????????");
+
   useEffect(() => {
     axiosWithAuth()
-      .get("/items")
+      .get(`/potlucks/${id}/items`)
       .then((res) => {
         console.log(res, "Item Res Data ??????");
         setItems(res.data);
@@ -23,21 +26,52 @@ const AddItemCard = (props) => {
       });
   }, []);
 
+  const handleDeleteItem = (ids) => {
+    // e.preventDefault();
+    console.log(ids, "ID ID ID ID in delete Item >>>>>>><<<<<<<<<");
+    axiosWithAuth()
+      .delete(`/items/${ids}`)
+      .then((res) => {
+        console.log(res, "DELETE Item  RES >>>>>>><<<<<<<<<");
+      })
+      .catch((error) => {
+        console.log(error, "DELETE Item ERROR >>>>>>><<<<<<<<<");
+      });
+  };
+
   return (
-    <div>
+    <Styles>
       <div>
         Food Items
         {items.map((item) => {
           return (
-            <FoodItemDiv key={item.id}>
-              <p>Potluck Id: {item.potluck_id}</p>
-              <p>Food Item: {item.item_name}</p>
-              <p>claimed:{item.claimed}</p>
-            </FoodItemDiv>
+            <div key={item.id} className="mainItemDiv">
+              <div className="foodItemDiv">
+                <input
+                  className="foodItem"
+                  type="checkbox"
+                  value={item.claimed}
+                />
+                <p className="foodItem"> {item.item_name}</p>
+                {/* <li>claimed:{item.claimed}</li> */}
+              </div>
+
+              <div className="itemDeleteBtn">
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onClick={() => handleDeleteItem(item.id)}
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+            </div>
           );
         })}
       </div>
-    </div>
+    </Styles>
   );
 };
 export default AddItemCard;

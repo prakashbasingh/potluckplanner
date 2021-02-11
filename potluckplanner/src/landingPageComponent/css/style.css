@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+/* html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -17,8 +17,8 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
     vertical-align: baseline;
-}
-
+} */
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 /* Styling for the Landing Page */
 
 body {
@@ -65,7 +65,7 @@ header img {
   width: 20%;
   height: 100%;
   margin: 2%;
-  border-radius:40%;
+  border-radius:1rem;
   border:2px dashed black;
   padding:0.5%;
   background-color: #f6d186;
