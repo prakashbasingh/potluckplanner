@@ -82,9 +82,24 @@ const UpdatePotluckForm = (props) => {
     });
   };
 
+  const updateHandleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put(`/potlucks/${id}`, editPotluck)
+      .then((res) => {
+        console.log(res, "PUT  Potluck UpdateForm RRS  <<<<<<<>>>>>>>");
+
+        props.setPotluckInfo(res.data); //this updates state in APP component
+      })
+      .catch((error) => {
+        console.log(error, "PUT Potluck UpdateForm ERROPR <<<<<<<>>>>>>>");
+      });
+    history.push(`/potluckPage/${id}`);
+  };
+
   useEffect(() => {
     axiosWithAuth()
-      .get(`/potlucks/potluckById/${id}`)
+      .get(`/potlucks/${id}`)
       .then((res) => {
         console.log(res, "GET UpdateForm RES <<<<<<<>>>>>>>");
         setEditPotluck(res.data);
@@ -93,21 +108,6 @@ const UpdatePotluckForm = (props) => {
         console.log(error, " GET UpdateForm ERROR <<<<<<<>>>>>>>");
       });
   }, [id]);
-
-  const updateHandleSubmit = (e) => {
-    e.preventDefault();
-    axiosWithAuth()
-      .put(`/potlucks/${id}`, editPotluck)
-      .then((res) => {
-        console.log(res, "PUT UpdateForm RRS  <<<<<<<>>>>>>>");
-
-        props.setPotluckInfo(res.data); //this updates state in APP component
-      })
-      .catch((error) => {
-        console.log(error, "PUT UpdateForm ERROPR <<<<<<<>>>>>>>");
-      });
-    history.push(`/potluckPage/${id}`);
-  };
 
   return (
     <UpdateFormContainer>

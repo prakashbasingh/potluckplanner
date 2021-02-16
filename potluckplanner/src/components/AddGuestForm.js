@@ -17,7 +17,7 @@ const GuestFormContainer = styled.div`
   box-shadow: 0 0 15px 20px #ffc0cb;
 `;
 const GuestCard = styled.div`
-  margin: 2rem;
+  margin: 1rem;
 `;
 const LinkBag = styled.div`
   margin: 2rem;
@@ -52,6 +52,10 @@ const initialGestInfo = {
 };
 
 const AddGuestForm = (props) => {
+  console.log(
+    props,
+    "ID in Props in ADD GUEST FORM ----------------------------"
+  );
   const history = useHistory();
   console.log(history, "History in AddGuestForm");
 
@@ -121,7 +125,7 @@ const AddGuestForm = (props) => {
         <Button> Add Guest</Button>
       </form>
       <GuestCard>
-        <AddGuestCard />
+        <AddGuestCard potluckId={props.potluckId} />
         <LinkContainer>
           <Link to="/potluckPage">Back To Potluck Page</Link>
         </LinkContainer>

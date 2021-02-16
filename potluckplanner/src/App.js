@@ -18,13 +18,12 @@ import signupSchema from "./components/formSchemaSignup";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import CreatePotluckForm from "./components/CreatePotluckForm";
-import AddItemForm from "./components/AddItemForm";
 import PotluckPage from "./components/PotluckPage";
-import AddGuestForm from "./components/AddGuestForm";
 import UpdatePotluckForm from "./components/UpdatePotluckForm";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
 import PrivateRoute from "./utils/PrivateRoute";
 import Potluck from "./components/Potluck";
+import UpdateGuestForm from "./components/updateGuestForm";
 
 import Home from "./landingPageComponent/home.js";
 import HowItWorks from "./landingPageComponent/howItWorks.js";
@@ -124,6 +123,7 @@ function App(props) {
   };
 
   const signupInputChange = (event) => {
+    event.preventDefault();
     const { name, value } = event.target;
 
     yup
@@ -149,7 +149,7 @@ function App(props) {
   };
 
   const loginInputChange = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     // setLogin(event.target.value);
 
     const { name, value } = event.target;
@@ -329,7 +329,11 @@ function App(props) {
               </a>
             </div>
           )}
-
+          <Route
+            exact
+            path="/potluckPage/:id/guestUpdateForm/:id"
+            render={() => <UpdateGuestForm />}
+          />
           <Route
             exact
             path="/potluckPage/updateForm/:id"

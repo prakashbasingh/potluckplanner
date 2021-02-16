@@ -5,6 +5,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 import AddItemForm from "./AddItemForm";
 import AddGuestForm from "./AddGuestForm";
+import UpdatePotluckForm from "./UpdatePotluckForm";
 
 const Potluck = (props) => {
   console.log(
@@ -15,7 +16,7 @@ const Potluck = (props) => {
   const history = useHistory();
   console.log(history, "H H H H H H H HH H H H H H H H");
 
-  const id = history.location.pathname.slice(13, 16);
+  const id = history.location.pathname.slice(13, 15);
   console.log(id, "???????????????????????????????");
 
   const potluck = props.potluckInfo.find((thing) => {
@@ -92,16 +93,25 @@ const Potluck = (props) => {
         <button
           className="btn btn-success btn-sm m-2"
           onClick={() => history.push(`/potluckPage/updateForm/${potluck.id}`)}
+          // data-toggle="modal"
+          // data-target="#EditPotluckModel"
         >
           Edit Potluck
         </button>
+        {/* <div className="modal fade" id="EditPotluckModel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <UpdatePotluckForm />
+            </div>
+          </div>
+        </div> */}
         <button className="btn btn-success btn-sm m-2" onClick={handleDelete}>
           Delete Potluck
         </button>
       </div>
       <div className="row">
         <div className="col-sm-6">
-          <AddGuestForm />
+          <AddGuestForm potluckId={potluck.id} />
         </div>
         <div className="col-sm-6">
           <AddItemForm />

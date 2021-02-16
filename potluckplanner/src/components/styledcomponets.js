@@ -71,9 +71,10 @@ export default styled.div`
   .mainGuestDiv {
     display: flex;
     height: 60px;
+    border: 1px solid black;
+    margin: 1%;
   }
   .guestDiv {
-    border: 1px solid black;
     margin: 5px;
     text-align: left;
     width: 95%;
@@ -83,12 +84,20 @@ export default styled.div`
   }
 
   .guestDeleteBtn {
-    width: 5%;
+    width: 15%;
     text-align: right;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 1%;
   }
-  .guestDeleteBtn button {
+  .guestDeleteBtn button .far {
     color: red;
+    margin: 2px;
+  }
+
+  .guestDeleteBtn button .fas {
+    color: green;
+    margin: 2px;
   }
 `;

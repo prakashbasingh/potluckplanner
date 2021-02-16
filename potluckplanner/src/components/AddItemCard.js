@@ -60,11 +60,10 @@ const AddItemCard = (props) => {
                 <button
                   type="button"
                   className="close"
-                  data-dismiss="modal"
                   aria-label="Close"
                   onClick={() => handleDeleteItem(item.id)}
                 >
-                  <span>&times;</span>
+                  <i class="far fa-trash-alt"></i>
                 </button>
               </div>
             </div>
