@@ -10,7 +10,33 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Styles from "./styledcomponets";
 import "../landingPageComponent/css/style.css";
 
-import UpdateGuestForm from "./updateGuestForm";
+// // Get GuestModal element
+// var guestModel = document.getElementById("guestModel");
+// // get Open Model Button
+// var openModalButton = document.getElementById("guestModalBtn");
+// // get close button
+// var closeModalButton = document.getElementById("closeButton");
+// // set listen for open click
+// openModalButton.addEventListener("click", openGuestModal);
+// // set listen for close click
+// closeModalButton.addEventListener("click", closeGuestModal);
+// //Set Listen for Outside Click
+// window.addEventListener("click", outsideClick);
+
+// // set function to open model
+// function openGuestModal() {
+//   guestModel.style.display = "block";
+// }
+
+// // set function to close model
+// function closeGuestModal() {
+//   guestModel.style.display = "none";
+// }
+
+// // set function to close model
+// function outsideClick() {
+//   guestModel.style.display = "none";
+// }
 
 const AddItemCard = (props) => {
   console.log(
@@ -19,8 +45,6 @@ const AddItemCard = (props) => {
   );
   const [guest, setGuest] = useState([]);
   console.log(guest, "Do we Have guestCard Data::::::::::::::");
-
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const history = useHistory();
   console.log(history, "History in AddGuestCard");
@@ -81,10 +105,11 @@ const AddItemCard = (props) => {
                 </button>
                 <button
                   type="button"
-                  className="close"
+                  className="close GuestModalBtn"
                   area-label="close"
-                  data-toggle="modal"
-                  data-target="#myModal"
+                  id="guestModalBtn"
+                  // data-toggle="modal"
+                  // data-target="#myModal"
                   // onClick={() =>
                   //   history.push(`/potluckPage/updateGuestForm/${newGuest.id}`)
                   // }

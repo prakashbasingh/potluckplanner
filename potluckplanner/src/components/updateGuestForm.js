@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
+import Styles from "./styledcomponets";
 
 const initialNewGestInfo = {
   guest_name: "",
@@ -33,7 +34,6 @@ const UpdateGuestForm = (props) => {
       .put(`/guests/${id}`, newGuestInfo)
       .then((res) => {
         console.log(res, "EDIT  guest Form  RES <<<<<<<>>>>>>>");
-        setNewGuestInfo(res.data);
         history.goBack();
       })
       .catch((error) => {
@@ -53,30 +53,40 @@ const UpdateGuestForm = (props) => {
       });
   }, []);
   return (
-    <div>
-      <form onSubmit={handleEditGuestInfo}>
-        <label>
-          Guest Name
-          <input
-            type="text"
-            name="guest_name"
-            value={newGuestInfo.guest_name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Email Address:
-          <input
-            type="email"
-            name="email"
-            value={newGuestInfo.email}
-            onChange={handleChange}
-          />{" "}
-        </label>
-
-        <button> Update</button>
-      </form>
-    </div>
+    <Styles>
+      <div id="guestModal" class="guestModal">
+        <div className="ModalContent">
+          <form onSubmit={handleEditGuestInfo} className=" updateGuestForm">
+            <label>
+              Guest Name:
+              <input
+                type="text"
+                name="guest_name"
+                value={newGuestInfo.guest_name}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Email Address:
+              <input
+                type="email"
+                name="email"
+                value={newGuestInfo.email}
+                onChange={handleChange}
+              />
+            </label>
+            <button className="btn btn-sm"> Update</button>
+          </form>
+          <span
+            className="closeButton"
+            id="closeButton"
+            onClick={() => history.goBack()}
+          >
+            &times;
+          </span>
+        </div>
+      </div>
+    </Styles>
   );
 };
 export default UpdateGuestForm;

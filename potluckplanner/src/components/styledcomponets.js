@@ -100,4 +100,47 @@ export default styled.div`
     color: green;
     margin: 2px;
   }
+
+  /* Fo Guest Modal (AddGuestCard & updateGuestForm) */
+  .guestModal {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .ModalContent {
+    background: #caa005;
+    margin: 35% auto;
+    padding: 40px;
+    width: 60%;
+    box-shadow: 0 0 15px 20px #caa005;
+    display: flex;
+    align-items: center;
+  }
+  .updateGuestForm {
+    width: 80%auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .updateGuestForm label {
+    text-align: left;
+  }
+  .closeButton {
+    float: right;
+    width: 20%;
+    color: #000;
+    font-size: 30px;
+    text-align: right;
+  }
+  .closeButton:hover,
+  .closeButton:focus {
+    color: red;
+    cursor: pointer;
+  }
 `;
