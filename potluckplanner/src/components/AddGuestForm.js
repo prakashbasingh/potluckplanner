@@ -126,18 +126,7 @@ const AddGuestForm = (props) => {
       </form>
       <GuestCard>
         <AddGuestCard potluckId={props.potluckId} />
-        <LinkContainer>
-          <Link to="/potluckPage">Back To Potluck Page</Link>
-        </LinkContainer>
       </GuestCard>
-      <LinkBag>
-        <LinkContainer>
-          <Link to="/potluckForm">Go To Potluck Form</Link>
-        </LinkContainer>
-        <LinkContainer>
-          <Link to="/itemForm">Go To Add Item Form</Link>
-        </LinkContainer>
-      </LinkBag>
     </GuestFormContainer>
   );
 };

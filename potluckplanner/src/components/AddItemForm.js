@@ -129,33 +129,7 @@ const AddItemForm = (props) => {
       </form>
       <div>
         <AddItemCard />
-        <LinkContainer>
-          <Link
-            to="/guestForm"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            Now, Please Add Guest
-          </Link>
-        </LinkContainer>
       </div>
-      <LinkBag>
-        <LinkContainer>
-          <Link
-            to="/potluckForm"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            Go To Potluck Form
-          </Link>
-        </LinkContainer>
-        <LinkContainer>
-          <Link
-            to="/potluckPage"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            Go To Potluck Page
-          </Link>
-        </LinkContainer>
-      </LinkBag>
     </ItemFormContainer>
   );
 };
