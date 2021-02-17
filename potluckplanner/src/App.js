@@ -64,7 +64,7 @@ const initialDisabled = true;
 function App(props) {
   // console.log(props, "kjhabgfsoiagdsoaqiguds")
   const [login, setLogin] = useState(initialLoginValues);
-  // console.log(login, " login Info {}{}{}{}{}{}|{}|")
+  console.log(login, " login Info {}{}{}{}{}{}|{}|");
 
   const [signup, setSignup] = useState(initialSignupValues);
   console.log(signup, " SIGN UP Info {}{}{}{}{}{}|{}|");
@@ -112,9 +112,10 @@ function App(props) {
     axiosWithAuth()
       .post("/auth/login", login)
       .then((res) => {
-        console.log(res.data, "postLogin res ()()()()()()()");
+        console.log(res, "postLogin res ()()()()()()()");
         localStorage.setItem("token", res.data.token);
         window.location.assign("/potluckPage");
+        localStorage.setItem("username", login.username);
       })
       .catch((error) => {
         console.log(error.message, "postLogin Error ()()()()()()");
@@ -188,20 +189,42 @@ function App(props) {
     });
   }, [login]);
 
+  const loginPerson = localStorage.getItem("username");
+  function logOut() {
+    localStorage.setItem("token", "");
+    localStorage.setItem("username", "");
+  }
+
   const token = localStorage.getItem("token");
   return (
     <Router>
       <div className="App">
-        <header
-          className="App-header"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1571559932711-cb498a7a1ce1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            alt="crockpot logo"
-          />
-          <h1 style={{ fontSize: "5rem" }}> Potlucky Potluck Planner</h1>
-          {/* <div>User</div> */}
+        <header className="App-header">
+          <div className="imageAndTitle">
+            <img
+              src="https://images.unsplash.com/photo-1571559932711-cb498a7a1ce1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+              alt="crockpot logo"
+            />
+            <h1> Potlucky Potluck Planner</h1>
+          </div>
+          {token ? (
+            <div className="welcomeAndLogOut">
+              <div className="welcome">
+                <p>
+                  ------- Welcome <span>{loginPerson}</span> -------
+                </p>
+              </div>
+              <div className="logout btn btn-outline-dark btn-sm" type="button">
+                <a onClick={() => logOut()} href="/">
+                  Log Out
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="pleaseLogin">
+              <p>"Please Login to Access Potluck page"</p>
+            </div>
+          )}
         </header>
         <nav className="nav-landing2">
           <a

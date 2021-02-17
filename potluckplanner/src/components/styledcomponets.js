@@ -10,6 +10,7 @@ export default styled.div`
     border: 1px solid #5cb85c;
     box-shadow: 0 0 15px 20px #5cb85c;
   }
+
   .signup {
     border: 2px solid #0275d8;
     box-shadow: 0 0 15px 20px #0275d8;
@@ -40,6 +41,28 @@ export default styled.div`
   .potImage img {
     border: 1px solid red;
     box-shadow: 0 0 15px 20px #0275d8;
+  }
+  /* createPotluckCard */
+  .potluckContainer {
+    /* border: 1px solid gray; */
+    width: 70%;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    border: 1px solid red;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 28px red;
+    background: #cbfece;
+  }
+  .potluckContainer:hover {
+    background: red;
+    box-shadow: 5px 10px 28px green;
+    border: 1px solid green;
+    cursor: pointer;
+  }
+  .potluckCardDiv {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
   }
 
   /* AddItemCard Component */
@@ -120,10 +143,11 @@ export default styled.div`
     width: 60%;
     box-shadow: 0 0 15px 20px #caa005;
     display: flex;
+    /* justify-content: space-between; */
     align-items: center;
   }
   .updateGuestForm {
-    width: 80%auto;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,6 +162,7 @@ export default styled.div`
     font-size: 30px;
     text-align: right;
   }
+
   .closeButton:hover,
   .closeButton:focus {
     color: red;

@@ -72,14 +72,14 @@ const Potluck = (props) => {
           }}
         >
           <button
-            style={{ width: "15px", color: "red" }}
+            style={{ width: "50px", color: "red" }}
             type="button"
             className="close "
             data-dismiss="modal"
             aria-label="Close"
             onClick={() => history.push("/potluckPage")}
           >
-            <span>&times;</span>
+            <span> go Back &times;</span>
           </button>
         </div>
 

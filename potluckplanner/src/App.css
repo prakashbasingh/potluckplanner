@@ -21,12 +21,12 @@ height:100%;
 
 .App-header {
   background-color: #CBE2B0;
-  min-height: 10vh;
+  /* min-height: 20vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: black;
   font-family: 'Architects Daughter', cursive;
 }
@@ -43,3 +43,46 @@ height:100%;
     transform: rotate(360deg);
   }
 }
+
+.imageAndTitle{
+  display: flex; 
+  flex-direction: row
+}
+.App .App-header .imageAndTitle h1{
+  font-size: 5rem
+}
+.welcomeAndLogOut{
+  display: flex; 
+  flex-direction: column;
+  width: 100%;
+  float: left;
+  margin: 1%;
+}
+.welcomeAndLogOut .welcome p{
+  margin: 10px;
+  font-size: 20px;
+}
+.welcome p span{
+  color: red;
+  text-transform: uppercase;
+}
+.logout{
+  margin-left: 90%;
+  box-shadow: 0 0 10px 2px #135213;
+  display: flex;
+  align-items: center;
+}
+.logout a {
+  font-size: 20px;;
+    color: black;
+    padding-bottom: 1rem;;
+    
+  }
+  .logout a:hover{
+    color: red;
+    cursor: pointer;
+     /* box-shadow: 0 0 10px 2px black; */
+  }
+  .pleaseLogin{
+    margin: 10px;
+  }

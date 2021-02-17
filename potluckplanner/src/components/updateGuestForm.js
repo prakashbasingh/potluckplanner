@@ -66,6 +66,7 @@ const UpdateGuestForm = (props) => {
                 onChange={handleChange}
               />
             </label>
+            <br />
             <label>
               Email Address:
               <input
@@ -75,7 +76,7 @@ const UpdateGuestForm = (props) => {
                 onChange={handleChange}
               />
             </label>
-            <button className="btn btn-sm"> Update</button>
+            <button className="btn btn-success btn-sm "> Update</button>
           </form>
           <span
             className="closeButton"
