@@ -108,47 +108,10 @@ const AddItemCard = (props) => {
                   className="close GuestModalBtn"
                   area-label="close"
                   id="guestModalBtn"
-                  // data-toggle="modal"
-                  // data-target="#myModal"
-                  // onClick={() =>
-                  //   history.push(`/potluckPage/updateGuestForm/${newGuest.id}`)
-                  // }
                   onClick={(ev) => routeToGuest(ev, newGuest.id)}
                 >
                   <i className="fas fa-pencil-alt"></i>
                 </button>
-
-                {/* <div className="modal fade" id="myModal">
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h4>Update Your Guest Info</h4>
-                        <button
-                          type="button"
-                          className="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span>&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">
-                        <UpdateGuestForm
-                          newGuest={newGuest}
-                          newGuestId={newGuest.id}
-                        />
-                      </div>
-                      <div className="modal-footer">
-                        <button
-                          className="btn btn-primary"
-                          data-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           );
