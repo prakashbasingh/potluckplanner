@@ -51,19 +51,7 @@ const LinkContainer = styled.div`
   }
 `;
 
-const initialPotluck = {
-  locationName: "",
-  locationAddress: "",
-  locationStreet: "",
-  locationCity: "",
-  locationState: "",
-  locationPostCode: "",
-  locationCountry: "",
-};
-
-const UpdatePotluckForm = (props) => {
-  console.log(props, "W H A T   W E  H A V E   H E R E ? ? ? ");
-
+const UpdatePotluckForm = () => {
   const history = useHistory();
   console.log(history, "-----------------><------------------");
   //   const { id } = useParams();
@@ -88,13 +76,13 @@ const UpdatePotluckForm = (props) => {
       .put(`/potlucks/${id}`, editPotluck)
       .then((res) => {
         console.log(res, "PUT  Potluck UpdateForm RRS  <<<<<<<>>>>>>>");
-
-        props.setPotluckInfo(res.data); //this updates state in APP component
+        history.goBack();
+        // props.setPotluckInfo(res.data); //this updates state in APP component
+        // history.push(`/potluckPage/${id}`);
       })
       .catch((error) => {
         console.log(error, "PUT Potluck UpdateForm ERROPR <<<<<<<>>>>>>>");
       });
-    history.push(`/potluckPage/${id}`);
   };
 
   useEffect(() => {
@@ -107,7 +95,7 @@ const UpdatePotluckForm = (props) => {
       .catch((error) => {
         console.log(error, " GET UpdateForm ERROR <<<<<<<>>>>>>>");
       });
-  }, [id]);
+  }, []);
 
   return (
     <UpdateFormContainer>
@@ -134,15 +122,7 @@ const UpdatePotluckForm = (props) => {
             onChange={handleChange}
           />{" "}
         </label>
-        {/* <label>
-          Block No
-          <input
-            type="number"
-            name="locationAddress"
-            value={editPotluck.locationAddress}
-            onChange={handleChange}
-          />{" "}
-        </label> */}
+
         <label>
           Location
           <input
@@ -170,34 +150,10 @@ const UpdatePotluckForm = (props) => {
             onChange={handleChange}
           />{" "}
         </label>
-        {/* <label>
-          Postal Code
-          <input
-            type="text"
-            name="locationPostCode"
-            value={editPotluck.locationPostCode}
-            onChange={handleChange}
-          />{" "}
-        </label> */}
-        {/* <label>
-          Country
-          <input
-            type="text"
-            name="locationCountry"
-            value={editPotluck.locationCountry}
-            onChange={handleChange}
-          />{" "}
-        </label> */}
-        {/* <label>
-          ID
-          <input
-            type="text"
-            name="user_id"
-            value={editPotluck.user_id}
-            onChange={handleChange}
-          />{" "}
-        </label> */}
-        <Button>Update</Button>
+
+        <button type="submit" className="btn btn-sm btn-success ">
+          Update
+        </button>
       </Form>
       <LinkBag>
         <LinkContainer>
@@ -222,3 +178,48 @@ const UpdatePotluckForm = (props) => {
   );
 };
 export default UpdatePotluckForm;
+
+{
+  /* <label>
+          Block No
+          <input
+            type="number"
+            name="locationAddress"
+            value={editPotluck.locationAddress}
+            onChange={handleChange}
+          />{" "}
+        </label> */
+}
+{
+  /* <label>
+          Postal Code
+          <input
+            type="text"
+            name="locationPostCode"
+            value={editPotluck.locationPostCode}
+            onChange={handleChange}
+          />{" "}
+        </label> */
+}
+{
+  /* <label>
+          Country
+          <input
+            type="text"
+            name="locationCountry"
+            value={editPotluck.locationCountry}
+            onChange={handleChange}
+          />{" "}
+        </label> */
+}
+{
+  /* <label>
+          ID
+          <input
+            type="text"
+            name="user_id"
+            value={editPotluck.user_id}
+            onChange={handleChange}
+          />{" "}
+        </label> */
+}

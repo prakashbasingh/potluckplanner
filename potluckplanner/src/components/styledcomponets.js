@@ -90,7 +90,32 @@ export default styled.div`
     color: red;
   }
 
-  /* AddGuestCard Component */
+  /* AddGuestForm */
+  /* .GuestFormAndCardContainer {
+    border: 1px solid black;
+    margin: 1%;
+  } */
+  .addGuestFormContainer {
+    display: flex;
+    font-size: 18px;
+  }
+  .guestFormOnly {
+    width: 80%;
+  }
+  .addGuestButton {
+    /* float: right; */
+    width: 20%;
+  }
+
+  /* Potluck.js ################################################*/
+
+  .potluckSelected {
+    margin: 2%;
+    padding: 2%;
+    border-bottom: 2px solid black;
+  }
+
+  /* AddGuestCard Component ############################################*/
   .mainGuestDiv {
     display: flex;
     height: 60px;

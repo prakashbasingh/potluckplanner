@@ -1,50 +1,9 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
+import Styles from "./styledcomponets";
 
 import AddItemCard from "./AddItemCard";
-
-const ItemFormContainer = styled.div`
-  padding: 2rem;
-  width: 70%;
-  height: 100%;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid gray;
-  background: #ffb6c1;
-  box-shadow: 0 0 15px 20px #ffc0cb;
-`;
-const ItemCard = styled.div`
-  margin: 2rem;
-`;
-const LinkBag = styled.div`
-  margin: 2rem;
-  display: flex;
-  justify-content: space-around;
-`;
-const LinkContainer = styled.div`
-  margin: 1rem auto;
-  padding: 2px 10px;
-  background-color: #cbe2b0;
-  border: 1px dashed black;
-  border-radius: 12px;
-  &:hover {
-    background: green;
-    box-shadow: 0 0 5px 2px green;
-  }
-`;
-const Button = styled.button`
-  width: 200px;
-  margin: 1rem auto;
-  border-radius: 1rem;
-  background: #cbe2b0;
-  &:hover {
-    background: #cbe2b0;
-    box-shadow: 0 0 5px 2px green;
-  }
-`;
 
 const initialFoodItems = {
   item_name: "",
@@ -86,51 +45,67 @@ const AddItemForm = (props) => {
   };
 
   return (
-    <ItemFormContainer>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            placeholder="Food Name"
-            type="text"
-            name="item_name"
-            value={foodItems.item_name}
-            onChange={handleChange}
-          />
-        </label>
-        {/* <label>
-          <input
-            placeholder="Food Category"
-            type="text"
-            name="foodCategory"
-            value={foodItems.foodCategory}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          <input
-            placeholder="Food Description"
-            type="text"
-            name="foodDescription"
-            value={foodItems.foodDescription}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label>
-          <input
-            placeholder="Servings"
-            type="number"
-            name="servings"
-            value={foodItems.servings}
-            onChange={handleChange}
-          />
-        </label> */}
-        <Button> Add Food</Button>
-      </form>
-      <div>
-        <AddItemCard />
+    <Styles>
+      <div lassName="GuestFormAndCardContainer">
+        <form onSubmit={handleSubmit} className="addGuestFormContainer">
+          <div className="guestFormOnly">
+            <div className="form-group row">
+              <label className="col-sm-4 col-form-label" for="guest_name">
+                <input
+                  placeholder="Food Name"
+                  type="text"
+                  name="item_name"
+                  value={foodItems.item_name}
+                  onChange={handleChange}
+                  className=" form-control"
+                  id="guest_name"
+                />
+              </label>
+            </div>
+          </div>
+          <div className="row addGuestButton">
+            <div className="col-sm-p offset-sm-3">
+              <button type="submit" className="btn btn-sm btn-success ">
+                Add Food
+              </button>
+            </div>
+          </div>
+        </form>
+        <div>
+          <AddItemCard />
+        </div>
       </div>
-    </ItemFormContainer>
+    </Styles>
   );
 };
 export default AddItemForm;
+//   {
+//     /* <label>
+//   <input
+//     placeholder="Food Category"
+//     type="text"
+//     name="foodCategory"
+//     value={foodItems.foodCategory}
+//     onChange={handleChange}
+//   />
+// </label>
+// <label>
+//   <input
+//     placeholder="Food Description"
+//     type="text"
+//     name="foodDescription"
+//     value={foodItems.foodDescription}
+//     onChange={handleChange}
+//   />
+// </label>
+
+// <label>
+//   <input
+//     placeholder="Servings"
+//     type="number"
+//     name="servings"
+//     value={foodItems.servings}
+//     onChange={handleChange}
+//   />
+// </label> */
+//   }

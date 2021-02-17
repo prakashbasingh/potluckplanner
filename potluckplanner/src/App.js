@@ -360,7 +360,7 @@ function App(props) {
           <Route
             exact
             path="/potluckPage/updateForm/:id"
-            render={() => <UpdatePotluckForm setPotluckInfo={setPotluckInfo} />}
+            render={() => <UpdatePotluckForm />}
           />
           {/* <PrivateRoute exact path="/potluckPage/updateForm/:id">
             <UpdatePotluckForm setPotluckInfo={setPotluckInfo} />
@@ -370,8 +370,8 @@ function App(props) {
             Path="/potluckPage/:id"
             render={() => (
               <Potluck
-                potluckInfo={potluckInfo}
-                setPotluckInfo={setPotluckInfo}
+              // potluckInfo={potluckInfo}
+              // setPotluckInfo={setPotluckInfo}
               />
             )}
           />
