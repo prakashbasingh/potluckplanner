@@ -3,7 +3,14 @@ import { Link, useHistory } from "react-router-dom";
 import Styles from "./styledcomponets";
 
 const Signup = (props) => {
-  const { signup, onInputChange, submitSignupInfo, disabled, errors } = props;
+  const {
+    signup,
+    onInputChange,
+    submitSignupInfo,
+    disabled,
+    errors,
+    userTakenErrorMessage,
+  } = props;
   console.log(props, "0000000000000000");
 
   let history = useHistory();
@@ -16,6 +23,7 @@ const Signup = (props) => {
       >
         <h2 className="heading">Sign Up</h2>
         <br />
+        <p className="text-warning mb-2 ">{userTakenErrorMessage}</p>
         <form>
           <div className="form-group row">
             <label className="col-sm-2 col-form-label" for="username">

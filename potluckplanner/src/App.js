@@ -78,6 +78,9 @@ function App(props) {
   const [potluckInfo, setPotluckInfo] = useState([]);
   console.log(potluckInfo, "Do We Have Potluck INfo here .........??????");
 
+  const [invalidCredentials, setInvalidCredentials] = useState([]);
+  const [userTakenErrorMessage, setUserTakenErrorMessage] = useState([]);
+
   useEffect(() => {
     axiosWithAuth()
       .get("/potlucks")
@@ -102,7 +105,9 @@ function App(props) {
         window.location.assign("/login");
       })
       .catch((error) => {
-        console.log(error, "postSignup error ()()()()()()()()");
+        console.log(error.response, "postSignup error ()()()()()()()()");
+        let userTakenMessage = error.response.data.message;
+        setUserTakenErrorMessage(userTakenMessage);
       });
     setSignup(initialSignupValues);
   };
@@ -118,7 +123,9 @@ function App(props) {
         localStorage.setItem("username", login.username);
       })
       .catch((error) => {
-        console.log(error.message, "postLogin Error ()()()()()()");
+        console.log(error.response, "postLogin Error ()()()()()()");
+        let credentialError = error.response.data.message;
+        setInvalidCredentials(credentialError);
       });
     setLogin(initialLoginValues);
   };
@@ -308,6 +315,7 @@ function App(props) {
                 errors={loginErrors}
                 submitLoginInfo={submitLoginInfo}
                 {...props}
+                invalidCredentials={invalidCredentials}
               />
             )}
           />
@@ -322,6 +330,7 @@ function App(props) {
                 disabled={signupDisabled}
                 errors={signupErrors}
                 submitSignupInfo={submitSignupInfo}
+                userTakenErrorMessage={userTakenErrorMessage}
               />
             )}
           />

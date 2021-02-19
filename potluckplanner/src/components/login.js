@@ -10,10 +10,11 @@ const Login = (props) => {
     disabled,
     errors,
     submitLoginInfo,
+    invalidCredentials,
   } = props;
 
   let history = useHistory();
-
+  const token = localStorage.getItem("token");
   return (
     <Styles>
       <div
@@ -22,6 +23,9 @@ const Login = (props) => {
       >
         <h2 className="heading">Login</h2>
         <br />
+        <div>
+          <p className="text-warning mb-2 ">{invalidCredentials}</p>
+        </div>
         <form onSubmit={submitLoginInfo}>
           <div className="form-group row">
             <label className="col-sm-2 col-form-label" for="username">
