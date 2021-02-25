@@ -42,6 +42,7 @@ const initialSignupValues = {
   // email: "",
   username: "",
   password: "",
+  role_name: "",
 };
 
 const initialLoginErrors = {
@@ -110,6 +111,7 @@ function App(props) {
         setUserTakenErrorMessage(userTakenMessage);
       });
     setSignup(initialSignupValues);
+    localStorage.setItem("username", "");
   };
 
   const submitLoginInfo = (e) => {
@@ -117,7 +119,7 @@ function App(props) {
     axiosWithAuth()
       .post("/auth/login", login)
       .then((res) => {
-        console.log(res, "postLogin res ()()()()()()()");
+        console.log(res.data, "postLogin res ()()()()()()()");
         localStorage.setItem("token", res.data.token);
         window.location.assign("/potluckPage");
         localStorage.setItem("username", login.username);
@@ -214,7 +216,7 @@ function App(props) {
             />
             <h1> Potlucky Potluck Planner</h1>
           </div>
-          {token ? (
+          {loginPerson ? (
             <div className="welcomeAndLogOut">
               <div className="welcome">
                 <p>

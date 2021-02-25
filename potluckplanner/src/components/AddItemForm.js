@@ -41,12 +41,13 @@ const AddItemForm = (props) => {
       .catch((error) => {
         console.log(error.message, "food Item posting Error// / / / ? ? ? ");
       });
+    window.location.assign(`/potluckPage/${id}`);
     setFoodItems(initialFoodItems);
   };
 
   return (
     <Styles>
-      <div lassName="GuestFormAndCardContainer">
+      <div className="GuestFormAndCardContainer">
         <form onSubmit={handleSubmit} className="addGuestFormContainer">
           <div className="guestFormOnly">
             <div className="form-group row">
@@ -58,7 +59,6 @@ const AddItemForm = (props) => {
                   value={foodItems.item_name}
                   onChange={handleChange}
                   className=" form-control"
-                  id="guest_name"
                 />
               </label>
             </div>

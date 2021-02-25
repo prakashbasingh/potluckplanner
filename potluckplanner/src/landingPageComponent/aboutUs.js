@@ -54,11 +54,11 @@ export default function AboutUs() {
               alt="Prakash"
             />
             <h3>Prakash</h3>
-            <h4>Front End Developer</h4>
+            <h4>Front-End/Back-End Developer</h4>
             <p>
-              Prakash knows his front ends, that’s for sure. He was a science
-              student, but finally finds his passion and becomes a full time
-              coder.
+              Prakash knows his front and back ends, that’s for sure. He was a
+              science student, but finally finds his passion and becomes a full
+              time coder.
             </p>
           </div>
           <div class="box5">

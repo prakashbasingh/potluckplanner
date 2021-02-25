@@ -92,7 +92,6 @@ const AddGuestForm = (props) => {
                   value={addGuest.guest_name}
                   onChange={GuestHandleChange}
                   className=" form-control"
-                  id="guest_name"
                 />
               </div>
             </div>

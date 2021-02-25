@@ -75,6 +75,7 @@ const AddItemCard = (props) => {
       .catch((error) => {
         console.log(error, "DELETE guest ERROR <<<<<<<>>>>>>>");
       });
+    window.location.assign(`/potluckPage/${id}`);
   };
 
   function routeToGuest(e, ID) {
@@ -101,7 +102,7 @@ const AddItemCard = (props) => {
                   aria-label="Close"
                   onClick={() => handleDeleteGuest(newGuest.id)}
                 >
-                  <i class="far fa-trash-alt"></i>
+                  <i className="far fa-trash-alt"></i>
                 </button>
                 <button
                   type="button"

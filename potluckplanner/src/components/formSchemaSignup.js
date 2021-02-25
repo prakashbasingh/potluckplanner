@@ -17,6 +17,7 @@ const SignupSchema = yup.object().shape({
     .string()
     .min(8, "Must be at least 8 characters long.")
     .required("Password is required."),
+  role_name: yup.string().required("You must select your role."),
 });
 
 export default SignupSchema;

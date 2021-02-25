@@ -37,6 +37,7 @@ const AddItemCard = (props) => {
       .catch((error) => {
         console.log(error, "DELETE Item ERROR >>>>>>><<<<<<<<<");
       });
+    window.location.assign(`/potluckPage/${id}`);
   };
 
   return (
@@ -63,7 +64,7 @@ const AddItemCard = (props) => {
                   aria-label="Close"
                   onClick={() => handleDeleteItem(item.id)}
                 >
-                  <i class="far fa-trash-alt"></i>
+                  <i className="far fa-trash-alt"></i>
                 </button>
               </div>
             </div>

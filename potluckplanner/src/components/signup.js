@@ -58,6 +58,28 @@ const Signup = (props) => {
             </div>
             <p className="error col-sm-4">{errors.password}</p>
           </div>
+          <div className="form-group row">
+            <label className="col-sm-2 col-form-label " for="roleNameMenu">
+              Select Role:
+            </label>
+            <div className="col-sm-6">
+              <select
+                placeholder="Select your role"
+                className="form-control dropdown-toggle"
+                id="roleNameMenu"
+                value={signup.role_name}
+                onChange={onInputChange}
+                name="role_name"
+                type="text"
+              >
+                <option></option>
+                <option>admin</option>
+                <option>organizer</option>
+                <option>guest</option>
+              </select>
+            </div>
+            <p className="error col-sm-4">{errors.role_name}</p>
+          </div>
 
           <div className="bttn row">
             <div className="col-sm-p offset-sm-2">
