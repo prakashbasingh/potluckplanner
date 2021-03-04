@@ -14,16 +14,16 @@ const CreatePotluckCard = (props) => {
 
   return (
     <Styles>
-      <div className=" row border border-dark pt-2 ">
+      <div className=" row  pt-2 ">
         <div className="col col-sm-2 potImage">
           <img
-            // className="potImage"
+            className="img-fluid"
             src="https://c1.staticflickr.com/3/2464/31961822194_a9161f2b5d_b.jpg"
           />
         </div>
 
         <div className="col col-sm-8">
-          <h1 style={{ fontSize: "20px" }}> Potluck List </h1>
+          <h4> Potluck's List </h4>
 
           <div className="row align-items-center potluckCardDiv">
             {props.potluckInfo.map((potluck) => {
@@ -51,7 +51,7 @@ const CreatePotluckCard = (props) => {
         <div className="col col-sm-2 potImage">
           <img
             src="https://c1.staticflickr.com/3/2464/31961822194_a9161f2b5d_b.jpg"
-            class="img-fluid"
+            className="img-fluid"
           />
         </div>
       </div>

@@ -24,6 +24,7 @@ import { axiosWithAuth } from "./utils/axiosWithAuth";
 import PrivateRoute from "./utils/PrivateRoute";
 import Potluck from "./components/Potluck";
 import UpdateGuestForm from "./components/updateGuestForm";
+import UpdateUserPotluckForm from "./components/UpdateUserPotluckForm";
 
 import Home from "./landingPageComponent/home.js";
 import HowItWorks from "./landingPageComponent/howItWorks.js";
@@ -122,7 +123,9 @@ function App(props) {
         console.log(res.data, "postLogin res ()()()()()()()");
         localStorage.setItem("token", res.data.token);
         window.location.assign("/potluckPage");
-        localStorage.setItem("username", login.username);
+        localStorage.setItem("username", res.data.username);
+        localStorage.setItem("role_name", res.data.role_name);
+        localStorage.setItem("user_id", res.data.user_id);
       })
       .catch((error) => {
         console.log(error.response, "postLogin Error ()()()()()()");
@@ -199,9 +202,15 @@ function App(props) {
   }, [login]);
 
   const loginPerson = localStorage.getItem("username");
+  const roleName = localStorage.getItem("role_name");
+  console.log(roleName, " RES DATA Role-Name after Login  XXXXXXXXXXXXXXXXXX");
+  const userId = localStorage.getItem("user_id");
+
   function logOut() {
     localStorage.setItem("token", "");
     localStorage.setItem("username", "");
+    localStorage.setItem("role_name", "");
+    localStorage.setItem("user_id", "");
   }
 
   const token = localStorage.getItem("token");
@@ -216,11 +225,14 @@ function App(props) {
             />
             <h1> Potlucky Potluck Planner</h1>
           </div>
-          {loginPerson ? (
+          {token ? (
             <div className="welcomeAndLogOut">
               <div className="welcome">
                 <p>
                   ------- Welcome <span>{loginPerson}</span> -------
+                </p>
+                <p>
+                  "You are logged in as <span>{roleName}</span>"
                 </p>
               </div>
               <div className="logout btn btn-outline-dark btn-sm" type="button">
@@ -321,7 +333,6 @@ function App(props) {
               />
             )}
           />
-
           <Route
             exact
             path="/register"
@@ -336,13 +347,19 @@ function App(props) {
               />
             )}
           />
-
           <Route exact path="/potluckForm" component={CreatePotluckForm} />
+          {/* <Route
+            exact
+            // path="/UpdateUserPotluckForm"
+            path="/potluckPage/UpdateUserPotluckForm/:id"
+            component={UpdateUserPotluckForm}
+          /> */}
+
           {/* <Route exact path="/itemForm" component={AddItemForm} />
           <Route exact path="/guestForm" component={AddGuestForm} /> */}
           {token ? (
             <PrivateRoute exact path="/potluckPage">
-              <PotluckPage />
+              <PotluckPage roleName={roleName} userId={userId} />
             </PrivateRoute>
           ) : (
             <div

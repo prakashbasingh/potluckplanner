@@ -28,9 +28,7 @@ const Login = (props) => {
         </div>
         <form onSubmit={submitLoginInfo}>
           <div className="form-group row">
-            <label className="col-sm-2 col-form-label" for="username">
-              Username
-            </label>
+            <label className="col-sm-2 col-form-label">Username</label>
             <div className="col-sm-6">
               <input
                 type="Text"
@@ -39,16 +37,14 @@ const Login = (props) => {
                 value={login.username}
                 onChange={onInputChange}
                 name="username"
-                placeholder="username"
+                placeholder="First-Name and Last-Name"
               />
             </div>
             <p className="error col-sm-4">{errors.username}</p>
           </div>
 
           <div className="form-group row">
-            <label className="col-sm-2 col-form-label" for="password">
-              password
-            </label>
+            <label className="col-sm-2 col-form-label">password</label>
             <div className="col-sm-6">
               <input
                 className="form-control"

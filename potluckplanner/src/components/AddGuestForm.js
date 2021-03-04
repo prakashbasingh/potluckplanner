@@ -35,6 +35,7 @@ import AddGuestCard from "./AddGuestCard";
 const initialGestInfo = {
   guest_name: "",
   email: "",
+  role_name: "",
 };
 
 const AddGuestForm = (props) => {
@@ -62,6 +63,7 @@ const AddGuestForm = (props) => {
     const newGuestInfo = {
       guest_name: addGuest.guest_name,
       email: addGuest.email,
+      role_name: "guest",
     };
 
     // e.preventDefault();

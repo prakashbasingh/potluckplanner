@@ -58,6 +58,10 @@ height:100%;
   float: left;
   margin: 1%;
 }
+.welcomeAndLogOut .welcome{
+  display: flex;
+  flex-direction: column;
+}
 .welcomeAndLogOut .welcome p{
   margin: 10px;
   font-size: 20px;

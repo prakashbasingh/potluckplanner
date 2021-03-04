@@ -39,10 +39,6 @@ import "../landingPageComponent/css/style.css";
 // }
 
 const AddItemCard = (props) => {
-  console.log(
-    props.potluckId,
-    "Potluck ID in AddGuestCard.js********************************"
-  );
   const [guest, setGuest] = useState([]);
   console.log(guest, "Do we Have guestCard Data::::::::::::::");
 

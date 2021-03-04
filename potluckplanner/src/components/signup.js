@@ -26,9 +26,7 @@ const Signup = (props) => {
         <p className="text-warning mb-2 ">{userTakenErrorMessage}</p>
         <form>
           <div className="form-group row">
-            <label className="col-sm-2 col-form-label" for="username">
-              Username:
-            </label>
+            <label className="col-sm-2 col-form-label">Username:</label>
             <div className="col-sm-6">
               <input
                 className="form-control"
@@ -43,9 +41,7 @@ const Signup = (props) => {
           </div>
 
           <div className="form-group row">
-            <label className="col-sm-2 col-form-label" for="password">
-              Password:
-            </label>
+            <label className="col-sm-2 col-form-label">Password:</label>
             <div className="col-sm-6">
               <input
                 className="form-control"
@@ -59,9 +55,7 @@ const Signup = (props) => {
             <p className="error col-sm-4">{errors.password}</p>
           </div>
           <div className="form-group row">
-            <label className="col-sm-2 col-form-label " for="roleNameMenu">
-              Select Role:
-            </label>
+            <label className="col-sm-2 col-form-label ">Select Role:</label>
             <div className="col-sm-6">
               <select
                 placeholder="Select your role"

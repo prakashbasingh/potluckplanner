@@ -193,4 +193,37 @@ export default styled.div`
     color: red;
     cursor: pointer;
   }
+
+  /* UserCard.js */
+  .userCardContainer {
+    /* border: 1px solid gray; */
+    width: 70%;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    border: 1px solid red;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 28px red;
+    background: #cbfece;
+  }
+  /* .userCardDiv .userCardContainer p {
+    color: red;
+  } */
+  /* .userCardContainer:hover .userCardDiv .userCardContainer p {
+    color: white;
+  } */
+  .userCardContainer:hover {
+    background: red;
+    box-shadow: 5px 10px 28px green;
+    border: 1px solid green;
+    cursor: pointer;
+    .userCardDiv .userCardContainer p {
+      color: white;
+    }
+  }
+
+  .userCardDiv {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+  }
 `;
