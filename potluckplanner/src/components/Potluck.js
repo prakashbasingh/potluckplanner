@@ -53,6 +53,8 @@ const Potluck = (props) => {
       });
   }, []);
 
+  const roleName = localStorage.getItem("role_name");
+
   return (
     <Styles>
       <div className=" bg-warning">
@@ -81,18 +83,26 @@ const Potluck = (props) => {
             <p> Date: {potluck.date}</p>
             <p> Time: {potluck.time}</p>
           </div>
-
-          <button
-            className="btn btn-success btn-sm m-2"
-            onClick={() =>
-              history.push(`/potluckPage/updateForm/${potluck.id}`)
-            }
-          >
-            Edit Potluck
-          </button>
-          <button className="btn btn-success btn-sm m-2" onClick={handleDelete}>
-            Delete Potluck
-          </button>
+          {roleName == "guest" ? (
+            <div></div>
+          ) : (
+            <div>
+              <button
+                className="btn btn-success btn-sm m-2"
+                onClick={() =>
+                  history.push(`/potluckPage/updateForm/${potluck.id}`)
+                }
+              >
+                Edit Potluck
+              </button>
+              <button
+                className="btn btn-success btn-sm m-2"
+                onClick={handleDelete}
+              >
+                Delete Potluck
+              </button>
+            </div>
+          )}
         </div>
         <div className="row">
           <div className="col-sm-6">

@@ -24,7 +24,7 @@ import { axiosWithAuth } from "./utils/axiosWithAuth";
 import PrivateRoute from "./utils/PrivateRoute";
 import Potluck from "./components/Potluck";
 import UpdateGuestForm from "./components/updateGuestForm";
-import UpdateUserPotluckForm from "./components/UpdateUserPotluckForm";
+import UserCreatePotluckForm from "./components/UserCreatePotluckForm";
 
 import Home from "./landingPageComponent/home.js";
 import HowItWorks from "./landingPageComponent/howItWorks.js";
@@ -348,13 +348,17 @@ function App(props) {
             )}
           />
           <Route exact path="/potluckForm" component={CreatePotluckForm} />
+          <Route
+            exact
+            path="/userCreatePotluckForm"
+            component={UserCreatePotluckForm}
+          />
           {/* <Route
             exact
             // path="/UpdateUserPotluckForm"
             path="/potluckPage/UpdateUserPotluckForm/:id"
             component={UpdateUserPotluckForm}
           /> */}
-
           {/* <Route exact path="/itemForm" component={AddItemForm} />
           <Route exact path="/guestForm" component={AddGuestForm} /> */}
           {token ? (

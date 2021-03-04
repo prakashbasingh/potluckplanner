@@ -40,7 +40,7 @@ const PotluckPage = ({ roleName, userId }) => {
           setPotluckInfo={setPotluckInfo}
         />
       )}
-      {roleName == "guest" && <GuestPotluckPage userId={userId} />}
+      {roleName == "guest" && <GuestPotluckPage potluckInfo={potluckInfo} />}
     </div>
   );
 };

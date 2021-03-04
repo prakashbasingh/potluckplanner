@@ -226,4 +226,114 @@ export default styled.div`
     display: flex;
     justify-content: space-around;
   }
+
+  /* For UserCreatePotluckForm.############################### */
+  .userCreatePotluckForm {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .formModelContent {
+    background: #caa005;
+    margin: 35% auto;
+    padding: 40px;
+    width: 60%;
+    box-shadow: 0 0 15px 20px #caa005;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+  .titleAndGoBackButton {
+    width: 100%;
+    margin: 5%auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid black;
+  }
+
+  .titleAndGoBackButton h2 {
+    font-size: 18px;
+    margin: 5%auto;
+  }
+  .titleAndGoBackButton button {
+    float: right;
+  }
+
+  .userPotluckForm {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userPotluckForm label {
+    text-align: left;
+  }
+  .submitButton button {
+    color: black;
+    margin: 5%auto;
+  }
+  .submitButton button:hover {
+    color: #ffffff;
+    background: red;
+    cursor: pointer;
+  }
+
+  /* For organizer potluck Page */
+  .organizerPotluckContainer {
+  }
+  .allOrganizerPotlucks {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .organizerPotluckCard {
+    padding: 1%;
+    margin: 1%;
+    border: 1px solid red;
+    box-shadow: 5px 10px 28px red;
+  }
+  .organizerPotluckCard:hover {
+    background: red;
+    box-shadow: 5px 10px 28px green;
+    border: 1px solid green;
+    cursor: pointer;
+  }
+
+  /* GUest Potluck Page */
+  .guestPotluckPage {
+  }
+  .guestPotluckPage > h4 {
+    color: black;
+    background: gold;
+  }
+  .allGuestPotlucks {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .guestPotluckCard {
+    color: black;
+    padding: 1%;
+    margin: 1%;
+    border: 1px solid red;
+    background: rgba(0, 255, 0, 0.6);
+    box-shadow: 5px 10px 28px red;
+    border-radius: 2rem;
+  }
+  .guestPotluckCard:hover {
+    color: white;
+    background: red;
+    box-shadow: 5px 10px 28px green;
+    border: 1px solid green;
+    cursor: pointer;
+  }
 `;

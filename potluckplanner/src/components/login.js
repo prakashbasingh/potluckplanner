@@ -37,7 +37,7 @@ const Login = (props) => {
                 value={login.username}
                 onChange={onInputChange}
                 name="username"
-                placeholder="First-Name and Last-Name"
+                placeholder="First-Name and Last-ame"
               />
             </div>
             <p className="error col-sm-4">{errors.username}</p>
