@@ -14,10 +14,28 @@ export default function HowItWorks() {
         <div class="process">
           <div>
             <ol start="1">
-              <li>1. Create a potluck.</li>
-              <li>2. List food items for people to bring.</li>
-              <li>3. Send link to party invitees so they can sign up.</li>
-              <li>4. People sign up to bring stuff.</li>
+              <li>1. Sign up with username, password, and a role</li>
+              <li>2. if signed up as admin need to provide a admin code</li>
+              <li>3. log in to your account to access the potluck page</li>
+              <li>
+                4. If logged in as Admin, can access all the potlucks and user's
+                information
+              </li>
+              <li>
+                5. If logged in as Organizer, can access only those potlucks
+                created by logged in Organizer
+              </li>
+              <li>
+                6. organizer can creat/update/delete potluck also can add/delete
+                food items
+              </li>
+              <li>
+                7. If logged in as Guest, can see all the potluck, but only can
+                go to the invited potluck and add food
+              </li>
+              <li>8. Guest can only add food, edit, and delete food items </li>
+              <li>9. List food items for people to bring.</li>
+              <li>10. Send link to party invitees so they can sign up.</li>
             </ol>
           </div>
 

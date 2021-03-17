@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
 import Styles from "./styledcomponets";
 
 const Login = (props) => {
@@ -13,8 +12,6 @@ const Login = (props) => {
     invalidCredentials,
   } = props;
 
-  let history = useHistory();
-  const token = localStorage.getItem("token");
   return (
     <Styles>
       <div

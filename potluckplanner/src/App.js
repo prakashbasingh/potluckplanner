@@ -213,7 +213,7 @@ function App(props) {
     localStorage.setItem("user_id", "");
   }
 
-  const token = localStorage.getItem("token");
+  const potluckToken = localStorage.getItem("token");
   return (
     <Router>
       <div className="App">
@@ -225,14 +225,14 @@ function App(props) {
             />
             <h1> Potlucky Potluck Planner</h1>
           </div>
-          {token ? (
+          {potluckToken ? (
             <div className="welcomeAndLogOut">
               <div className="welcome">
                 <p>
                   ------- Welcome <span>{loginPerson}</span> -------
                 </p>
                 <p>
-                  "You are logged in as <span>{roleName}</span>"
+                  "You are <span>{roleName}</span>"
                 </p>
               </div>
               <div className="logout btn btn-outline-dark btn-sm" type="button">
@@ -361,11 +361,12 @@ function App(props) {
           /> */}
           {/* <Route exact path="/itemForm" component={AddItemForm} />
           <Route exact path="/guestForm" component={AddGuestForm} /> */}
-          {token ? (
+          {potluckToken ? (
             <PrivateRoute exact path="/potluckPage">
               <PotluckPage roleName={roleName} userId={userId} />
             </PrivateRoute>
           ) : (
+            // history.push("/login")
             <div
               style={{
                 background: "rgba(0, 0, 0, 0.7",

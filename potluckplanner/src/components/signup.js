@@ -39,7 +39,6 @@ const Signup = (props) => {
             </div>
             <p className="error col-sm-4">{errors.username}</p>
           </div>
-
           <div className="form-group row">
             <label className="col-sm-2 col-form-label">Password:</label>
             <div className="col-sm-6">
@@ -74,6 +73,25 @@ const Signup = (props) => {
             </div>
             <p className="error col-sm-4">{errors.role_name}</p>
           </div>
+
+          {/* {signup.role_name == "admin" ? (
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Admin Code</label>
+              <div className="col-sm-6">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="admin_code"
+                  value={signup.admin_code}
+                  onChange={onInputChange}
+                  placeholder="Admin Code"
+                />
+              </div>
+              <p className="error col-sm-4">{errors.admin_code}</p>
+            </div>
+          ) : (
+            <div></div>
+          )} */}
 
           <div className="bttn row">
             <div className="col-sm-p offset-sm-2">
@@ -126,4 +144,25 @@ export default Signup;
     placeholder="Email"
   />
 </label> */
+}
+
+{
+  /* {signup.role_name == "admin" ? (
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Admin Code</label>
+              <div className="col-sm-6">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="admin_code"
+                  value={signup.admin_code}
+                  onChange={onInputChange}
+                  placeholder="Admin Code"
+                />
+              </div>
+              <p className="error col-sm-4">{errors.admin_code}</p>
+            </div>
+          ) : (
+            <div></div>
+          )} */
 }

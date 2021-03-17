@@ -22,6 +22,19 @@ export default function AboutUs() {
               Antarctica.
             </p>
           </div>
+          <div class="box4">
+            <img
+              src="https://ca.slack-edge.com/ESZCHB482-W012QNXAHHA-3718df56a021-512"
+              alt="Prakash"
+            />
+            <h3>Prakash</h3>
+            <h4>Front-End/Back-End Developer</h4>
+            <p>
+              Prakash knows his front and back ends, that’s for sure. He was a
+              science student, but finally finds his passion and becomes a full
+              time coder.
+            </p>
+          </div>
           <div class="box2">
             <img
               src="https://ca.slack-edge.com/ESZCHB482-W012R4ELF6Y-e81c53ade7bf-512"
@@ -48,19 +61,7 @@ export default function AboutUs() {
               anthems.
             </p>
           </div>
-          <div class="box4">
-            <img
-              src="https://ca.slack-edge.com/ESZCHB482-W012QNXAHHA-3718df56a021-512"
-              alt="Prakash"
-            />
-            <h3>Prakash</h3>
-            <h4>Front-End/Back-End Developer</h4>
-            <p>
-              Prakash knows his front and back ends, that’s for sure. He was a
-              science student, but finally finds his passion and becomes a full
-              time coder.
-            </p>
-          </div>
+
           <div class="box5">
             <img
               src="https://ca.slack-edge.com/ESZCHB482-W014G4L1M7T-462f5679b788-512"

@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  useHistory,
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Styles from "./styledcomponets";
 import "../landingPageComponent/css/style.css";

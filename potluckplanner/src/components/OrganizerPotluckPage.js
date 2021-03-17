@@ -47,6 +47,7 @@ const OrganizerPotluckPage = ({ userId, setPotluckInfo }) => {
     history.push(`/potluckPage/${potluck.id}`);
   }
 
+  const loginPerson = localStorage.getItem("username");
   return (
     <Styles>
       <div className=" bg-warning organizerPotluckContainer">
@@ -68,6 +69,7 @@ const OrganizerPotluckPage = ({ userId, setPotluckInfo }) => {
                   <p>Location: {OrgPotluck.location}</p>
                   <p> Date: {OrgPotluck.date}</p>
                   <p> Time: {OrgPotluck.time}</p>
+                  <p> Organizer: {loginPerson}</p>
                 </div>
 
                 <button
